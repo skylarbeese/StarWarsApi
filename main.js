@@ -18,7 +18,7 @@ films.forEach(film => {
       
         let poster = document.createElement('img')    
         poster.src = `https://starwars-visualguide.com/assets/img/films/${i + 1}.jpg`
-        
+        poster.setAttribute("class", "movie-img")
         titleCon.appendChild(poster)
      
         } 
@@ -26,6 +26,8 @@ films.forEach(film => {
         
         titleCon.appendChild(newTitle)
         titleCon.setAttribute("class", "movie")
+        
+        titleCrawl.setAttribute("class", "title-crawl")
         titleCon.appendChild(titleCrawl)
         titleCrawl.textContent = film.opening_crawl
         newTitle.textContent = film.title
