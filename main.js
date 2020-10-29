@@ -17,6 +17,7 @@ const movies = document.querySelector('.movies-con')
         let frontCon = document.createElement('div')
         let backCon = document.createElement('div')
         let box = document.createElement('div')
+        let card = document.createElement('div')
         let newTitle = document.createElement('h1')
         let titleCrawl = document.createElement('p')
 
@@ -25,6 +26,7 @@ const movies = document.querySelector('.movies-con')
         backCon.setAttribute("class", "back")
         frontCon.setAttribute("class", "front")
         box.setAttribute('class', 'box-crawl')
+        card.setAttribute("class", "card")
         let poster = document.createElement('img')
         poster.src = `https://starwars-visualguide.com/assets/img/films/${i + 1}.jpg`
         poster.setAttribute("class", "movie-img")
@@ -40,17 +42,29 @@ const movies = document.querySelector('.movies-con')
         //backCon.appendChild(titleCrawl) 
         backCon.appendChild(box)
         box.appendChild(titleCrawl)
-        titleCon.appendChild(frontCon)
-        titleCon.appendChild(backCon)
+        card.appendChild(frontCon)
+        card.appendChild(backCon)
+        titleCon.appendChild(card)
         movies.appendChild(titleCon)
        
     
     }
     
     
-   
+   /* const cardBtn = document.querySelectorAll(".card")
 
-       
+    cardBtn.addEventListener('click', function() {
+        if(!this.classList.contains("front-active")) {
+           this.classList.remove("back-active");
+           this.classList.add("front-active");
+           
+       } 
+        else {
+           this.classList.remove("front-active");
+           this.classList.add("back-active");
+         
+       } 
+   }) */
         
  
 
