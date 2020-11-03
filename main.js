@@ -103,25 +103,31 @@ const movies = document.querySelector('.movies-con')
         movie[6].setAttribute("class", "movie movie7");
        
     }
-   const card1 = document.querySelector('.card1')
-   const card2 = document.querySelector('.card2')
-   const card3 = document.querySelector('.card3')
-   const card4 = document.querySelector('.card4')
-   console.log(card1)
-    card1.addEventListener('click', function() {
-        if(!this.classList.contains("front-active")) {
-           this.classList.remove("back-active");
-           this.classList.add("front-active");
+   const cardBtn = document.querySelectorAll('.card')
+   
+   //console.log(card1)
+   cardBtn.forEach((cards) => {
+    cards.addEventListener('click', function() {
+       console.log("woring")
+        if(!cards.classList.contains("front-active")) {
+           cards.classList.remove("back-active");
+           cards.classList.add("front-active");
            
        } 
         else {
-           this.classList.remove("front-active");
-           this.classList.add("back-active");
+           cards.classList.remove("front-active");
+           cards.classList.add("back-active");
          
        } 
    }) 
+   })
 
-    card2.addEventListener('click', function() {
+
+
+
+
+   
+   /* card2.addEventListener('click', function() {
         if(!this.classList.contains("front-active")) {
            this.classList.remove("back-active");
            this.classList.add("front-active");
@@ -134,7 +140,7 @@ const movies = document.querySelector('.movies-con')
        } 
    }) 
      
- 
+ */
 
 
 

@@ -12,53 +12,12 @@ con.setAttribute('class', 'con')
 sec.appendChild(con)
 
 const  cont = document.querySelector('.con')
-/*
 
-for(let i = 0; i < people.length; i++) {
-    let persons = document.createElement('div')
-    let personName = document.createElement('h1')
-    let peresonGender = document.createElement('h2')
-    let personHair = document.createElement('h2')
-    let personEye = document.createElement('h2')
-    let birth = document.createElement('h2')
-    let img = document.createElement('img')
-    img.src = `https://starwars-visualguide.com/assets/img/characters/${i + 1}.jpg`
-    personName.textContent = people.name
-    peresonGender.textContent = people.gender
-    personHair.textContent = people.hair_color
-    personEye.textContent = people.eye_color
-    birth.textContent = people.birth_year
-    persons.appendChild(personName)
-    persons.appendChild(img)
-    persons.appendChild(peresonGender)
-    persons.appendChild(personHair)
-    persons.appendChild(personEye)
-    persons.appendChild(birth)
-    sec.appendChild(persons)
-}
-*/
-/*const maleCharactors = people.filter(person => person.gender === "male")
+populateDom(people)
+
+const maleCharactors = people.filter(person => person.gender === "male" || person.gender === "hermaphrodite")
 const femaleCharactors = people.filter(person => person.gender === "female")
-
-/*
-male.addEventListener('click', (event) => {
-
-    maleCharactors.forEach(element => {
-        let persons = document.createElement('div')
-        let img = document.createElement('img')
-        let names = document.createElement('h2')
-        let charNum = getLastNumber(element.url)
-        img.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-        names.textContent = element.name
-        persons.appendChild(img)
-        persons.appendChild(names)
-        sec.appendChild(persons)
-    })
-}) */
-
-const maleCharactors = people.filter(person => person.gender === "male")
-const femaleCharactors = people.filter(person => person.gender === "female")
-const otherCharactors = people.filter(person => person.gender === "n/a")
+const otherCharactors = people.filter(person => person.gender === "n/a" || person.gender === "none")
 
 male.addEventListener('click', (event) => {
      populateDom(maleCharactors) 
@@ -74,35 +33,57 @@ other.addEventListener('click', (event) => {
         removeChildren(cont)
        charactors.forEach(element => {
         let persons = document.createElement('div')
+        let card = document.createElement('div')
+        let front = document.createElement('div')
+        let back = document.createElement('div')
+        card.setAttribute('class', 'card')
+        front.setAttribute('class', 'front')
+        back.setAttribute('class', 'back')
+        persons.setAttribute('class', 'person-div')
         let img = document.createElement('img')
+        img.setAttribute("class", "image-class")
         let names = document.createElement('h2')
         let charNum = getLastNumber(element.url)
         img.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
         names.textContent = element.name
-        persons.appendChild(img)
-        persons.appendChild(names)
+        front.appendChild(img)
+        back.appendChild(names)
+        card.appendChild(front)
+        card.appendChild(back)
+        persons.appendChild(card)
+        
         cont.appendChild(persons)
     })
-    } 
+    let imgDiv = document.querySelectorAll('.person-div')
+let getLastOpenImg;
+let windowWidth = window.innerWidth
 
+imgDiv.forEach((imgs) => {
+    imgs.onclick = function() {
+       // alert('working')
+        console.log('working')
+       // getLastOpenImg = index + 1;
 
-
-
-/*
-female.addEventListener('click', (event) => {
-    femaleCharactors.forEach(element => {
-        let persons = document.createElement('div')
-        let img = document.createElement('img')
-        let names = document.createElement('h2')
-        let charNum = getLastNumber(element.url)
-        img.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-        names.textContent = element.name
-        persons.appendChild(img)
-        persons.appendChild(names)
-        sec.appendChild(persons)
-    })
+        let container = document.body
+        let newImgWindow = document.createElement('div')
+        container.appendChild(newImgWindow)
+        newImgWindow.setAttribute('class', "img-window")
+        newImgWindow.setAttribute('onclick', 'close()')
+    }
 })
-*/
+
+function close() {
+	//alert('working')
+   document.querySelector('.img-view').remove()
+
+   newImageWindow.classList.add('img-view-active')
+  
+} 
+    } 
+    
+
+
+
 let theUrl = "https://swapi.co/api/people/1/"
 
 function getLastNumber(url) {
@@ -120,5 +101,16 @@ function removeChildren(container) {
         container.removeChild(container.firstChild)
     }
 } 
-//console.log(getLastNumber(theUrl))
 
+//------------------------------------------------------------------------------------------------------------//
+
+    
+
+          
+
+    
+
+    
+      
+
+      
