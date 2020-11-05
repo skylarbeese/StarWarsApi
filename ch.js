@@ -33,55 +33,144 @@ other.addEventListener('click', (event) => {
         removeChildren(cont)
        charactors.forEach(element => {
         let persons = document.createElement('div')
-        let card = document.createElement('div')
-        let front = document.createElement('div')
-        let back = document.createElement('div')
-        card.setAttribute('class', 'card')
-        front.setAttribute('class', 'front')
-        back.setAttribute('class', 'back')
+        
         persons.setAttribute('class', 'person-div')
         let img = document.createElement('img')
+        let name = document.createElement('h1')
         img.setAttribute("class", "image-class")
-        let names = document.createElement('h2')
+        name.setAttribute('class', 'name')
+        name.textContent = element.name
         let charNum = getLastNumber(element.url)
         img.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-        names.textContent = element.name
-        front.appendChild(img)
-        back.appendChild(names)
-        card.appendChild(front)
-        card.appendChild(back)
-        persons.appendChild(card)
-        
+        persons.appendChild(name)
+        persons.appendChild(img)
         cont.appendChild(persons)
     })
-    let imgDiv = document.querySelectorAll('.person-div')
-let getLastOpenImg;
-let windowWidth = window.innerWidth
 
-imgDiv.forEach((imgs) => {
-    imgs.onclick = function() {
-       // alert('working')
-        console.log('working')
+//---------------------------------------------------------------------------------------------------------//
+    let imgDiv = document.querySelectorAll('.image-class')
+
+
+    //let getLastOpenImg;
+    //let windowWidth = window.innerWidth
+
+
+
+//-----------------------------------------------------//
+//--- text ----------------------------------------------------------------------//
+
+const imgs = people.filter(per => per.url === `https://swapi.co/api/people/22/`) 
+       
+
+ 
+
+
+imgDiv.forEach(el => {
+el.addEventListener('click', (event) => {
+    console.log(el.src)
+    windowImg(imgs)
+})  
+})
+
+function windowImg(newDivs) {
+newDivs.forEach(el => {
+   // el.addEventListener('click', function() {
+ 
+       
        // getLastOpenImg = index + 1;
 
         let container = document.body
+        let conDiv = document.createElement('div')
         let newImgWindow = document.createElement('div')
+        let name = document.createElement('h2')
+        let dOb = document.createElement('h2')
+        let eyeColor = document.createElement('h2')
+        let hairColor = document.createElement('h2')
+        let skinColor = document.createElement('h2')
+        let gender = document.createElement('h2')
+
+        let name1 = document.createElement('h2')
+        let dOb1 = document.createElement('h2')
+        let eyeColor1 = document.createElement('h2')
+        let hairColor1 = document.createElement('h2')
+        let skinColor1 = document.createElement('h2')
+        let gender1 = document.createElement('h2')
+        
+        let nameDiv = document.createElement('div')
+        let dObDiv = document.createElement('div')
+        let eyeColorDiv = document.createElement('div')
+        let hairColorDiv = document.createElement('div')
+        let skinColorDiv = document.createElement('div')
+        let genderDiv = document.createElement('div')
+
+        name.textContent = el.name
+        dOb.textContent = el.birth_year
+        eyeColor.textContent = el.eye_color
+        hairColor.textContent = el.hair_color
+        skinColor.textContent = el.skin_color
+        gender.textContent = el.gender
+        conDiv.setAttribute('class', 'con-div')
+        
         container.appendChild(newImgWindow)
         newImgWindow.setAttribute('class', "img-window")
         newImgWindow.setAttribute('onclick', 'close()')
-    }
+//-------------------------------------------------------------------//
+     let newImg = document.createElement('img')
+     let charNum = lastNumber(el.url)
+     //-- img ----------------------------------------------------------------------------//
+    newImg.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`   
+    console.log(charNum)
+    conDiv.appendChild(newImg) 
+//-------------------------------------------------------------------//   
+   //  let imgNode = el.firstElementChild.cloneNode()
+    
+   
+   nameDiv.appendChild(name1)
+   dObDiv.appendChild(dOb1)
+   eyeColorDiv.appendChild(eyeColor1)
+   hairColorDiv.appendChild(hairColor1)
+   skinColorDiv.appendChild(skinColor1)
+   genderDiv.appendChild(gender1)
+   
+   nameDiv.appendChild(name)
+   dObDiv.appendChild(dOb)
+   eyeColorDiv.appendChild(eyeColor)
+   hairColorDiv.appendChild(hairColor)
+   skinColorDiv.appendChild(skinColor)
+   genderDiv.appendChild(gender)
+
+   conDiv.appendChild(nameDiv)
+   conDiv.appendChild(dObDiv)
+   conDiv.appendChild(eyeColorDiv)
+   conDiv.appendChild(hairColorDiv)
+   conDiv.appendChild(skinColorDiv)
+   conDiv.appendChild(genderDiv)
+ //   conDiv.appendChild(newImg)
+     newImgWindow.appendChild(conDiv)
+     
+    
+      
+       newImg.classList.add('photo')
+       newImg.classList.remove('image-class')
+       newImg.setAttribute('class', 'current-img')
+ //   })
 })
+}
+function lastNumber(url) {
+    let end = url.lastIndexOf('/')
+    let start = end - 2
+    if(url.charAt(start) == '/') {
+        start++
+    }
+    //console.log(end)
+    return url.slice(start, end)
+ }
 
-function close() {
-	//alert('working')
-   document.querySelector('.img-view').remove()
-
-   newImageWindow.classList.add('img-view-active')
-  
-} 
+ 
     } 
     
-
+//--------------------------------------------------------------------------------------------------------//
+ 
 
 
 let theUrl = "https://swapi.co/api/people/1/"

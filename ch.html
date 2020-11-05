@@ -9,7 +9,9 @@
   <title> Page </title>
 </head>
 <body>
+    <div class="links">
     <a href="main.html"><h1>home</h1></a>
+    </div>
     <div class="btn">
         <button class="light"> female charactors </button>
         <button class="dark">male charactors</button>
@@ -34,10 +36,11 @@
         }
         .btn{
             width: 100%;
-            height: 30px;
+            height: 50px;
             justify-content: space-around;
             align-items: center;
             display: flex;
+            margin-top: 60px;
         }
         .con {
   width: 100vw;
@@ -55,17 +58,29 @@
   height: 670px;
  
 }
+a{
+        text-decoration: none;
+    }
 .img-window{
     height: 100vh;
     width: 100vw;
     background-color: black;
-
+    color: white;
     top: 0;
     left: 0;
     z-index: 100;
     position: fixed;
+    
 }
-
+.img-window h2 {
+    color: white;
+}
+.photo{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 300px;
+}
     </style>
 
 
