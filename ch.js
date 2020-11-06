@@ -33,55 +33,104 @@ other.addEventListener('click', (event) => {
         removeChildren(cont)
        charactors.forEach(element => {
         let persons = document.createElement('div')
-        
         persons.setAttribute('class', 'person-div')
+        let link = document.createElement('a')
+        link.href = '#'
+        let names = document.createElement('h1')
+          names.addEventListener('click', event => {
+              let names = event.target.textContent
+              const findPer = people.find(per => per.name === names)
+              windowImg(findPer)
+          }) 
         let img = document.createElement('img')
-        let name = document.createElement('h1')
+        
         img.setAttribute("class", "image-class")
-        name.setAttribute('class', 'name')
-        name.textContent = element.name
+        names.setAttribute('class', 'name')
+        names.textContent = element.name
+      
         let charNum = getLastNumber(element.url)
         img.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-        persons.appendChild(name)
+        link.appendChild(names)
+        persons.appendChild(link)
         persons.appendChild(img)
         cont.appendChild(persons)
     })
+}
 
+let theUrl = "https://swapi.co/api/people/1/"
+
+function getLastNumber(url) {
+   let end = url.lastIndexOf('/')
+   let start = end - 2
+   if(url.charAt(start) == '/') {
+       start++
+   }
+   //console.log(end)
+   return url.slice(start, end)
+}
+
+function removeChildren(container) {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+} 
 //---------------------------------------------------------------------------------------------------------//
-    let imgDiv = document.querySelectorAll('.image-class')
+ //const wind = document.querySelector('.window')
 
-
-    //let getLastOpenImg;
-    //let windowWidth = window.innerWidth
-
-
-
-//-----------------------------------------------------//
-//--- text ----------------------------------------------------------------------//
-
-const imgs = people.filter(per => per.url === `https://swapi.co/api/people/22/`) 
-       
-
- 
-
-
-imgDiv.forEach(el => {
-el.addEventListener('click', (event) => {
-    console.log(el.src)
-    windowImg(imgs)
-})  
-})
-
+//------------------------------------------------------------------------------------------------//
 function windowImg(newDivs) {
-newDivs.forEach(el => {
+//newDivs.forEach(el => {
    // el.addEventListener('click', function() {
- 
-       
-       // getLastOpenImg = index + 1;
-
         let container = document.body
         let conDiv = document.createElement('div')
         let newImgWindow = document.createElement('div')
+
+
+ 
+//----------div -------------------------------------------------------------------------------------------//
+        let name1 = document.createElement('h2')
+        let dOb1 = document.createElement('h2')
+        let eyeColor1 = document.createElement('h2')
+        let hairColor1 = document.createElement('h2')
+        let skinColor1 = document.createElement('h2')
+        let gender1 = document.createElement('h2')
+         
+        conDiv.setAttribute('class', 'con-div')
+        name1.setAttribute('class', "name")
+        dOb1.setAttribute('class', "birth")
+        eyeColor1.setAttribute('class', "eye")
+        hairColor1.setAttribute('class', "hair")
+        skinColor1.setAttribute('class', "skin")
+        gender1.setAttribute('class', "gender")
+
+//--------------------------------------------------------------------------------------------------------// 
+/*const nameClass = document.querySelector('.name')
+const birthClass = document.querySelector('.birth')
+const eyeClass = document.querySelector('.eye')
+const hairClass = document.querySelector('.hair')
+const skinClass = document.querySelector('.skin')
+const genderClass = document.querySelector('.gender')
+
+nameClass.innerText = 'name:'
+birthClass.innerText = 'birth year:'
+eyeClass.innerText = 'eye color:'
+hairClass.innerText = 'hair color:'
+skinClass.innerText = 'skin color:'
+genderClass.innerText = 'gender:' */
+
+
+
+//---------------------------------------------------------------------------------------------------------//
+        let nameDiv = document.createElement('div')
+        let dObDiv = document.createElement('div')
+        let eyeColorDiv = document.createElement('div')
+        let hairColorDiv = document.createElement('div')
+        let skinColorDiv = document.createElement('div')
+        let genderDiv = document.createElement('div')
+        
+      
+        
+//------array div info-------------------------------------------------------------------------------------------//
         let name = document.createElement('h2')
         let dOb = document.createElement('h2')
         let eyeColor = document.createElement('h2')
@@ -89,37 +138,25 @@ newDivs.forEach(el => {
         let skinColor = document.createElement('h2')
         let gender = document.createElement('h2')
 
-        let name1 = document.createElement('h2')
-        let dOb1 = document.createElement('h2')
-        let eyeColor1 = document.createElement('h2')
-        let hairColor1 = document.createElement('h2')
-        let skinColor1 = document.createElement('h2')
-        let gender1 = document.createElement('h2')
-        
-        let nameDiv = document.createElement('div')
-        let dObDiv = document.createElement('div')
-        let eyeColorDiv = document.createElement('div')
-        let hairColorDiv = document.createElement('div')
-        let skinColorDiv = document.createElement('div')
-        let genderDiv = document.createElement('div')
-
-        name.textContent = el.name
-        dOb.textContent = el.birth_year
-        eyeColor.textContent = el.eye_color
-        hairColor.textContent = el.hair_color
-        skinColor.textContent = el.skin_color
-        gender.textContent = el.gender
-        conDiv.setAttribute('class', 'con-div')
-        
+        name.textContent = newDivs.name
+        dOb.textContent = newDivs.birth_year
+        eyeColor.textContent = newDivs.eye_color
+        hairColor.textContent = newDivs.hair_color
+        skinColor.textContent = newDivs.skin_color
+        gender.textContent = newDivs.gender
+ 
+//------------------------------------------------------------------------------------------------//
         container.appendChild(newImgWindow)
         newImgWindow.setAttribute('class', "img-window")
         newImgWindow.setAttribute('onclick', 'close()')
 //-------------------------------------------------------------------//
      let newImg = document.createElement('img')
-     let charNum = lastNumber(el.url)
+    
+     let charNum1 = LastNumber(newDivs.url)
+     newImg.src = `https://starwars-visualguide.com/assets/img/characters/${charNum1}.jpg`
      //-- img ----------------------------------------------------------------------------//
-    newImg.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`   
-    console.log(charNum)
+    
+  
     conDiv.appendChild(newImg) 
 //-------------------------------------------------------------------//   
    //  let imgNode = el.firstElementChild.cloneNode()
@@ -145,18 +182,17 @@ newDivs.forEach(el => {
    conDiv.appendChild(hairColorDiv)
    conDiv.appendChild(skinColorDiv)
    conDiv.appendChild(genderDiv)
- //   conDiv.appendChild(newImg)
-     newImgWindow.appendChild(conDiv)
-     
+   newImgWindow.appendChild(conDiv)
+   //wind.appendChild(newImgWindow)
     
       
-       newImg.classList.add('photo')
-       newImg.classList.remove('image-class')
-       newImg.setAttribute('class', 'current-img')
- //   })
-})
+   // })
+//})
 }
-function lastNumber(url) {
+
+
+
+function LastNumber(url) {
     let end = url.lastIndexOf('/')
     let start = end - 2
     if(url.charAt(start) == '/') {
@@ -166,30 +202,36 @@ function lastNumber(url) {
     return url.slice(start, end)
  }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // onclick get url num and give it to newImg url --------------------------------------//
+
+
  
-    } 
+     
     
 //--------------------------------------------------------------------------------------------------------//
- 
 
 
-let theUrl = "https://swapi.co/api/people/1/"
 
-function getLastNumber(url) {
-   let end = url.lastIndexOf('/')
-   let start = end - 2
-   if(url.charAt(start) == '/') {
-       start++
-   }
-   //console.log(end)
-   return url.slice(start, end)
-}
 
-function removeChildren(container) {
-    while(container.firstChild) {
-        container.removeChild(container.firstChild)
-    }
-} 
 
 //------------------------------------------------------------------------------------------------------------//
 
