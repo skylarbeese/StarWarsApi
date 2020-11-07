@@ -86,7 +86,7 @@ function windowImg(newDivs) {
         let conDiv = document.createElement('div')
         let newImgWindow = document.createElement('div')
 
-
+        
  
 //----------div -------------------------------------------------------------------------------------------//
         let name1 = document.createElement('h2')
@@ -95,33 +95,31 @@ function windowImg(newDivs) {
         let hairColor1 = document.createElement('h2')
         let skinColor1 = document.createElement('h2')
         let gender1 = document.createElement('h2')
-         
+        
         conDiv.setAttribute('class', 'con-div')
-        name1.setAttribute('class', "name")
-        dOb1.setAttribute('class', "birth")
-        eyeColor1.setAttribute('class', "eye")
-        hairColor1.setAttribute('class', "hair")
-        skinColor1.setAttribute('class', "skin")
-        gender1.setAttribute('class', "gender")
+        name1.setAttribute('class', "name text")
+        dOb1.setAttribute('class', "birth text")
+        eyeColor1.setAttribute('class', "eye text")
+        hairColor1.setAttribute('class', "hair text")
+        skinColor1.setAttribute('class', "skin text")
+        gender1.setAttribute('class', "gender text")
 
 //--------------------------------------------------------------------------------------------------------// 
-/*const nameClass = document.querySelector('.name')
-const birthClass = document.querySelector('.birth')
-const eyeClass = document.querySelector('.eye')
-const hairClass = document.querySelector('.hair')
-const skinClass = document.querySelector('.skin')
-const genderClass = document.querySelector('.gender')
 
-nameClass.innerText = 'name:'
-birthClass.innerText = 'birth year:'
-eyeClass.innerText = 'eye color:'
-hairClass.innerText = 'hair color:'
-skinClass.innerText = 'skin color:'
-genderClass.innerText = 'gender:' */
 
 
 
 //---------------------------------------------------------------------------------------------------------//
+        let divCon = document.createElement('div')
+        divCon.setAttribute('class', 'text-con')
+        
+        let divCon1 = document.createElement('div')
+        divCon1.setAttribute('class', 'text-con1')
+
+        let divImg = document.createElement('div')
+        divImg.setAttribute('class', 'img-con')
+
+        
         let nameDiv = document.createElement('div')
         let dObDiv = document.createElement('div')
         let eyeColorDiv = document.createElement('div')
@@ -129,7 +127,21 @@ genderClass.innerText = 'gender:' */
         let skinColorDiv = document.createElement('div')
         let genderDiv = document.createElement('div')
         
+        let nameDiv1 = document.createElement('div')
+        let dObDiv1 = document.createElement('div')
+        let eyeColorDiv1 = document.createElement('div')
+        let hairColorDiv1 = document.createElement('div')
+        let skinColorDiv1 = document.createElement('div')
+        let genderDiv1 = document.createElement('div')
       
+         
+        nameDiv1.setAttribute('class', "text1")
+        dObDiv1.setAttribute('class', "text1")
+        eyeColorDiv1.setAttribute('class', "text1") 
+         hairColorDiv1.setAttribute('class', "text1") 
+        skinColorDiv1.setAttribute('class', "text1") 
+         genderDiv1.setAttribute('class', "text1") 
+
         
 //------array div info-------------------------------------------------------------------------------------------//
         let name = document.createElement('h2')
@@ -158,17 +170,18 @@ genderClass.innerText = 'gender:' */
      //-- img ----------------------------------------------------------------------------//
     
   
-    conDiv.appendChild(newImg) 
+    
 //-------------------------------------------------------------------//   
    //  let imgNode = el.firstElementChild.cloneNode()
     
-   
-   nameDiv.appendChild(name1)
-   dObDiv.appendChild(dOb1)
-   eyeColorDiv.appendChild(eyeColor1)
-   hairColorDiv.appendChild(hairColor1)
-   skinColorDiv.appendChild(skinColor1)
-   genderDiv.appendChild(gender1)
+  
+
+   nameDiv1.appendChild(name1)
+   dObDiv1.appendChild(dOb1)
+   eyeColorDiv1.appendChild(eyeColor1)
+   hairColorDiv1.appendChild(hairColor1)
+   skinColorDiv1.appendChild(skinColor1)
+   genderDiv1.appendChild(gender1) 
    
    nameDiv.appendChild(name)
    dObDiv.appendChild(dOb)
@@ -177,13 +190,41 @@ genderClass.innerText = 'gender:' */
    skinColorDiv.appendChild(skinColor)
    genderDiv.appendChild(gender)
 
-   conDiv.appendChild(nameDiv)
-   conDiv.appendChild(dObDiv)
-   conDiv.appendChild(eyeColorDiv)
-   conDiv.appendChild(hairColorDiv)
-   conDiv.appendChild(skinColorDiv)
-   conDiv.appendChild(genderDiv)
+   divCon.appendChild(nameDiv)
+   divCon.appendChild(dObDiv)
+   divCon.appendChild(eyeColorDiv)
+   divCon.appendChild(hairColorDiv)
+   divCon.appendChild(skinColorDiv)
+   divCon.appendChild(genderDiv)
+
+ /*  divCon.appendChild(nameDiv1)
+   divCon.appendChild(dObDiv1)
+   divCon.appendChild(eyeColorDiv1)
+   divCon.appendChild(hairColorDiv1)
+   divCon.appendChild(skinColorDiv1)
+   divCon.appendChild(genderDiv1) */
+
+   divCon1.appendChild(nameDiv1)
+   divCon1.appendChild(dObDiv1)
+   divCon1.appendChild(eyeColorDiv1)
+   divCon1.appendChild(hairColorDiv1)
+   divCon1.appendChild(skinColorDiv1)
+   divCon1.appendChild(genderDiv1)
+
+   nameDiv.setAttribute('class', 'text')
+   dObDiv.setAttribute('class', 'text')
+   eyeColorDiv.setAttribute('class', 'text')
+   hairColorDiv.setAttribute('class', 'text')
+   skinColorDiv.setAttribute('class', 'text')
+   genderDiv.setAttribute('class', 'text')
+
+   conDiv.appendChild(divImg)
    newImgWindow.appendChild(conDiv)
+   conDiv.appendChild(divImg) 
+    divImg.appendChild(newImg)
+    conDiv.appendChild(divCon1)
+    conDiv.appendChild(divCon)
+    
    //wind.appendChild(newImgWindow)
     
    let win = document.querySelector('.img-window')
