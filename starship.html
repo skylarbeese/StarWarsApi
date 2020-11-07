@@ -9,13 +9,98 @@
   <title> Page </title>
 </head>
 <body>
-  <div class="ship">
+  <div class="links">
+    <a href="main.html"><h1>films</h1></a>
+    <a href="starship.html"><h1 class="active">starships</h1></a>
+    <a href="index.html"><h1>home</h1></a>
+    <a href="ch.html"><h1>charecters</h1></a>
+    </div>
+  <section>
+  
       <nav>
           <ul></ul>
       </nav>
-  </div>
+ 
   <main>
       
   </main>
+  </section>
 </body>
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+  }
+  .active{
+    color: yellow;
+  }
+  body{
+          background-color: black;
+      }
+      .links{
+        justify-content: space-around;
+        align-items: center;
+        display: flex;
+        width: 100%;
+        height: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color:  rgb(19, 18, 18, .7);
+      }
+      a{
+          text-decoration: none;
+
+      }
+      h1{
+          color: white;
+      }
+  nav{
+    justify-content: left;
+    align-items: left;
+    display: flex;
+    width: 50%;
+    height: 110vh;
+  /*  background-color: gray; */
+    margin-left: 30px;
+    margin: 25px;
+  }
+  li {
+    list-style: none;
+    color: white;
+    font-size: large;
+  }
+  a{
+    text-decoration: none;
+  }
+  section{
+    justify-content: space-between;
+    align-items: right;
+    display: flex;
+    width: 100%;
+    height: 270vh;
+    background-color: black;
+  }
+  main{
+    justify-content: right;
+    align-items: center;
+    display: flex;
+    width: 70%;
+    height: 100vh;
+ /*   background-color: red; */
+
+  }
+  .ship-con{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 70vh;
+   /* background-color: blue; */
+  }
+  h2{
+    color: white;
+  }
+</style>
+
 </html>

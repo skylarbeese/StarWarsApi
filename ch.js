@@ -1,8 +1,8 @@
 import { people } from './data/people.js'
 
 const sec = document.querySelector('section')
-const female = document.querySelector('.light')
-const male = document.querySelector('.dark')
+const female = document.querySelector('.female')
+const male = document.querySelector('.male')
 const other = document.querySelector('.other')
 const gal = document.querySelector('.gal')
 
@@ -36,6 +36,7 @@ other.addEventListener('click', (event) => {
         persons.setAttribute('class', 'person-div')
         let link = document.createElement('a')
         link.href = '#'
+
         let names = document.createElement('h1')
           names.addEventListener('click', event => {
               let names = event.target.textContent
@@ -148,7 +149,7 @@ genderClass.innerText = 'gender:' */
 //------------------------------------------------------------------------------------------------//
         container.appendChild(newImgWindow)
         newImgWindow.setAttribute('class', "img-window")
-        newImgWindow.setAttribute('onclick', 'close()')
+        newImgWindow.setAttribute('onclick', 'closeWindow()')
 //-------------------------------------------------------------------//
      let newImg = document.createElement('img')
     
@@ -185,6 +186,13 @@ genderClass.innerText = 'gender:' */
    newImgWindow.appendChild(conDiv)
    //wind.appendChild(newImgWindow)
     
+   let win = document.querySelector('.img-window')
+
+
+
+  win.addEventListener('click', (event) => {
+       closeWindow(event)
+  })
       
    // })
 //})
@@ -205,7 +213,9 @@ function LastNumber(url) {
 
 
 
-
+function closeWindow() {
+    document.querySelector('.img-window').remove()
+}
 
 
 
