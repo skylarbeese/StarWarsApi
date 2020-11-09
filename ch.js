@@ -29,6 +29,8 @@ female.addEventListener('click', (event) => {
 other.addEventListener('click', (event) => {
     populateDom(otherCharactors) 
 }) 
+
+
     function populateDom(charactors) {
         removeChildren(cont)
        charactors.forEach(element => {
@@ -46,7 +48,7 @@ other.addEventListener('click', (event) => {
         let img = document.createElement('img')
         
         img.setAttribute("class", "image-class")
-        names.setAttribute('class', 'name')
+        names.setAttribute('class', 'name-class')
         names.textContent = element.name
       
         let charNum = getLastNumber(element.url)
@@ -75,8 +77,8 @@ function removeChildren(container) {
         container.removeChild(container.firstChild)
     }
 } 
-//---------------------------------------------------------------------------------------------------------//
- //const wind = document.querySelector('.window')
+
+ 
 
 //------------------------------------------------------------------------------------------------//
 function windowImg(newDivs) {
@@ -103,6 +105,10 @@ function windowImg(newDivs) {
         hairColor1.setAttribute('class', "hair text")
         skinColor1.setAttribute('class', "skin text")
         gender1.setAttribute('class', "gender text")
+       
+       
+       
+       
 
 //--------------------------------------------------------------------------------------------------------// 
 
@@ -197,12 +203,7 @@ function windowImg(newDivs) {
    divCon.appendChild(skinColorDiv)
    divCon.appendChild(genderDiv)
 
- /*  divCon.appendChild(nameDiv1)
-   divCon.appendChild(dObDiv1)
-   divCon.appendChild(eyeColorDiv1)
-   divCon.appendChild(hairColorDiv1)
-   divCon.appendChild(skinColorDiv1)
-   divCon.appendChild(genderDiv1) */
+
 
    divCon1.appendChild(nameDiv1)
    divCon1.appendChild(dObDiv1)
@@ -229,7 +230,12 @@ function windowImg(newDivs) {
     
    let win = document.querySelector('.img-window')
 
-
+   document.querySelector(".name").textContent += " name:";
+   document.querySelector(".birth").textContent += " birth year:";
+   document.querySelector(".eye").textContent += " eye color:";
+   document.querySelector(".hair").textContent += " hair color:";
+   document.querySelector(".skin").textContent += " skin color:";
+   document.querySelector(".gender").textContent += " gender:";
 
   win.addEventListener('click', (event) => {
        closeWindow(event)
