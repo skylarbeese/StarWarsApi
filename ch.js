@@ -82,8 +82,7 @@ function removeChildren(container) {
 
 //------------------------------------------------------------------------------------------------//
 function windowImg(newDivs) {
-//newDivs.forEach(el => {
-   // el.addEventListener('click', function() {
+
         let container = document.body
         let conDiv = document.createElement('div')
         let newImgWindow = document.createElement('div')
@@ -241,11 +240,10 @@ function windowImg(newDivs) {
        closeWindow(event)
   })
       
-   // })
-//})
+  
 }
 
-
+//--------------------------------------------------------------------------------------------------//
 
 function LastNumber(url) {
     let end = url.lastIndexOf('/')

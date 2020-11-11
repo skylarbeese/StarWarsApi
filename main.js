@@ -1,8 +1,5 @@
 import { films } from './data/films.js'
-import { people } from './data/people.js'
 
-
-//console.log(films.length)
 
 
 const titles = document.querySelector('.titles')
@@ -10,9 +7,7 @@ const movies = document.querySelector('.movies-con')
 
 
 
-    
-   // function populateDom() {
-    for(let i = 0; i < films.length; i++) {
+  /*  for(let i = 0; i < films.length; i++) {
         let titleCon = document.createElement('div')
         let frontCon = document.createElement('div')
         let backCon = document.createElement('div')
@@ -26,8 +21,6 @@ const movies = document.querySelector('.movies-con')
         
         backCon.setAttribute("class", "back")
        
-      
-
         frontCon.setAttribute("class", "front")
         box.setAttribute('class', 'box-crawl')
         card.setAttribute("class", "card")
@@ -41,11 +34,9 @@ const movies = document.querySelector('.movies-con')
         titleCrawl.textContent = films[i].opening_crawl
         
       
-       
-
         frontCon.appendChild(poster)
         backCon.appendChild(newTitle)
-        //backCon.appendChild(titleCrawl) 
+      
         backCon.appendChild(box)
         box.appendChild(titleCrawl)
         card.appendChild(frontCon)
@@ -53,10 +44,60 @@ const movies = document.querySelector('.movies-con')
         titleCon.appendChild(card)
         movies.appendChild(titleCon)
        
-    }
-   // }
+    }  */
+    
+//---------------------------------------------------------------------------------------------------------//
 
-    let theUrl = "https://swapi.co/api/people/1/"
+     function populateDom(films) {
+         films.forEach(el => {
+        let titleCon = document.createElement('div')
+        let frontCon = document.createElement('div')
+        let backCon = document.createElement('div')
+        let box = document.createElement('div')
+        let card = document.createElement('div')
+        let newTitle = document.createElement('h1')
+        let titleCrawl = document.createElement('p')
+
+        titleCon.setAttribute("class", "movie")
+        titleCrawl.setAttribute("class", "title-crawl") 
+        
+        backCon.setAttribute("class", "back")
+       
+        frontCon.setAttribute("class", "front")
+        box.setAttribute('class', 'box-crawl')
+        card.setAttribute("class", "card")
+
+
+        let poster = document.createElement('img')
+        let charNum = getLastNumber(el.url)
+        poster.src = `https://starwars-visualguide.com/assets/img/films/${charNum}.jpg`
+        poster.setAttribute("class", "movie-img")
+
+        newTitle.textContent = el.title 
+        titleCrawl.textContent = el.opening_crawl
+        
+      
+        frontCon.appendChild(poster)
+        backCon.appendChild(newTitle)
+      
+        backCon.appendChild(box)
+        box.appendChild(titleCrawl)
+        card.appendChild(frontCon)
+        card.appendChild(backCon)
+        titleCon.appendChild(card)
+        movies.appendChild(titleCon)
+       })
+     }
+
+
+
+     populateDom(films)
+
+
+  //-----------------------------------------------------------------------------------------------------//  
+
+  
+let theUrl = "https://swapi.co/api/people/1/"
 
 function getLastNumber(url) {
    let end = url.lastIndexOf('/')
@@ -68,6 +109,12 @@ function getLastNumber(url) {
    return url.slice(start, end)
 }
 
+
+
+
+
+
+//------------------------------------------------------------------------------------------------//
 
       let back = document.querySelectorAll('.back')
         for(let i=0; i < back.length; i++) {
@@ -117,6 +164,9 @@ function getLastNumber(url) {
         movie[6].setAttribute("class", "movie movie7");
        
     }
+
+//--------------------------------------------------------------------------------------------------//
+
    const cardBtn = document.querySelectorAll('.card')
    
    //console.log(card1)
@@ -136,87 +186,9 @@ function getLastNumber(url) {
    }) 
    })
 
-
+//---------------------------------------------------------------------------------------------------------//
 
 
 
    
-   /* card2.addEventListener('click', function() {
-        if(!this.classList.contains("front-active")) {
-           this.classList.remove("back-active");
-           this.classList.add("front-active");
-           
-       } 
-        else {
-           this.classList.remove("front-active");
-           this.classList.add("back-active");
-         
-       } 
-   }) 
-     
- */
-
-
-
-
-/*
-films.forEach(film => {
-    let titleCon = document.createElement('div')
-    let titleCrawl = document.createElement('p')
-    let newTitle = document.createElement('h1') 
-    let backCon = document.createElement('div')
-    let frontCon = document.createElement('div')
-    let crawlBox = document.createElement('div')
-   frontCon.setAttribute("class", "front")
-    for(let i = 0; i < 7; i++) {
-        let poster = document.createElement('img')    
-        poster.src = `https://starwars-visualguide.com/assets/img/films/${i + 1}.jpg`
-        poster.setAttribute("class", "movie-img")
-        
-        titleCon.appendChild(frontCon)
-        frontCon.appendChild(poster)
-    }
-    backCon.appendChild(crawlBox)
-    crawlBox.appendChild(titleCrawl)
-    crawlBox.setAttribute("class", "box1")
-    titleCon.setAttribute("class", "movie")
-    titleCrawl.textContent = film.opening_crawl
-    newTitle.textContent = film.title
-    titleCrawl.setAttribute("class", "title-crawl")
-    backCon.setAttribute("class", "back")
-    //backCon.appendChild(titleCrawl)
-    backCon.appendChild(newTitle)
-    titleCon.appendChild(backCon)
-   // titleCon.appendChild(newTitle)
-   // titleCon.appendChild(titleCrawl)
-    movies.appendChild(titleCon)
-}) */
-
-//let body = document.querySelector('body')
-/*
-function addStarFieldElement(el, numStar) {
-    el.style.setProperty('background-color', 'black') 
-    for(let i = 0; i < numStar; i++) {
-        let star = document.createElement('div')
-        star.style.setProperty('position', 'absolute')
-        star.style.setProperty('width', '2px')
-        star.style.setProperty('height', '2px')
-        star.style.setProperty('background-color', 'white')
-        let xy = getRandom()
-        star.style.left = `${xy{0}px}`
-        star.style.top = `${xy{1}px}`
-        element.appendChild(star)
-    }
-}
-
-function getRandom() {
-    let x = document.body.scrollHeight
-    let y = document.body.scrollWidth
-    let randomY = math.floor(math.random() * y)
-    let randomX = math.floor(math.random() * x)
-    return [randomY, randomX]
-}
-
-addStarFieldElement(document.querySelector('body'), 100)
-
-*/
+   
