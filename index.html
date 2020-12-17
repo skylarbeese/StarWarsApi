@@ -13,21 +13,27 @@
      
      <div class="links">
     <div class="link">
-  <a href="ch.html"><h2>charecters</h2>
+  <a class="pic" href="ch.html"><h2>charecters</h2>
     <img src="img/images.jpg" alt="">
 </a>
 </div>
 <div class="link">
-  <a href="main.html"><h2>films</h2>
+  <a class="pic" href="main.html"><h2>films</h2>
     <img src="img/logo.png" alt=""></a>
     </div>
     <div class="link">
-        <a href="starship.html"><h2>starships/vehicles</h2>
+        <a class="pic" href="starship.html"><h2>starships/vehicles</h2>
           <img src="img/image.jpg" alt=""></a>
           </div>
   </div>
  </div>
-
+ <footer> 
+     <div class="con-footer">
+      <a href=""> facebook </a>
+      <h2> skylar beese 2020 </h2>
+      <a href="https://github.com/skylarbeese/StarWarsApi.git"> github </a>
+    </div>
+</footer>
 </body>
 <style>
     *{
@@ -36,7 +42,7 @@
     }
     .container{
         width: 100%;
-        height: 100vh;
+        height: 90vh;
         background-color: black;
         justify-content: center;
         align-items: center;
@@ -47,7 +53,7 @@
         align-items: center;
         display: flex;
     }
-    .link, a{
+    .link, a.pic{
         justify-content: center;
         align-items: center;
         display: flex;
@@ -78,5 +84,30 @@
     h2{
         color: white;
     }
+    footer{
+    width: 100vw;
+    height: 30px;
+    background-color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     
+}
+.con-footer{
+    width: 30%;
+    height: 100%;
+     padding-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+footer h2{
+    color: black;
+}
+footer a{
+    color: black;
+}
+footer a:hover {
+    color: brown;
+}
 </style>

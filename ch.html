@@ -15,6 +15,9 @@
     <a href="index.html"><h1>home</h1></a>
     <a href="ch.html"><h1 class="active">charecters</h1></a>
     </div>
+    <div class="search-div">
+        <input type="text" name="searchBar" class="search" placeholder="search for a charecter" />
+    </div>
     <div class="btn">
         <button class="female"> female charactors </button>
         <button class="male">male charactors</button>
@@ -23,7 +26,9 @@
     </div>
    
     <section></section>
+  
     <div class="window"></div>
+    
 </body>
     <script type="module" src="ch.js"></script>
     <style>
@@ -175,6 +180,21 @@
     align-items: center;
     display: flex;
     width: 300px;
+}
+.search-div{
+    width: 50%;
+   
+    float: left;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+input.search{
+    width: 50%;
+    height: 80%;
+    font-size: 20px;
+    padding-left: 10px;
+    border: none;
+    border: 1px solid black;
 }
     </style>
 

@@ -5,15 +5,47 @@ const female = document.querySelector('.female')
 const male = document.querySelector('.male')
 const other = document.querySelector('.other')
 const gal = document.querySelector('.gal')
-
+//const search = document.querySelector('.search')
 
 let con = document.createElement('div')
 con.setAttribute('class', 'con')
 sec.appendChild(con)
-
+const search = document.querySelector('.search')
 const  cont = document.querySelector('.con')
 
 populateDom(people)
+
+
+/*const cap = str => {
+    const words = str.split(" ")
+    return words.map(word => word[0].toUpperCase() + word.slice[1])
+} */
+
+function filter(string) {
+    search.addEventListener('keyup', (e) => {
+  //  console.log(e.target.value);
+
+    let filterValue = capitalize(e.target.value)
+
+  
+
+  //  console.log(filterValue)
+  const filtered  = people.filter((per) => {
+    return  per.name.includes(filterValue)
+     })
+                     populateDom(filtered)
+        
+             
+   
+})
+}
+function capitalize(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+}
+
+filter()
+
+
 
 const maleCharactors = people.filter(person => person.gender === "male" || person.gender === "hermaphrodite")
 const femaleCharactors = people.filter(person => person.gender === "female")
@@ -155,7 +187,7 @@ function windowImg(newDivs) {
         let hairColor = document.createElement('h2')
         let skinColor = document.createElement('h2')
         let gender = document.createElement('h2')
-
+       
         name.textContent = newDivs.name
         dOb.textContent = newDivs.birth_year
         eyeColor.textContent = newDivs.eye_color
@@ -255,7 +287,7 @@ function LastNumber(url) {
     return url.slice(start, end)
  }
 
-
+ 
 
 
 function closeWindow() {
