@@ -5,7 +5,12 @@ import { vehicles } from './data/vehicles.js'
 const ship = document.querySelector('nav')
 const nav = document.querySelector('ul')
 const main = document.querySelector('main')
+const dia = document.querySelector('.modal')
+const closeBtn = document.querySelector('.modal-close')
 
+closeBtn.addEventListener('click', () => {
+    dia.classList.toggle("is-active")
+})
 function populateNav(starships) {
    
     starships.forEach(element => {
@@ -50,14 +55,21 @@ function populateNavVe(vehicles) {
 function populateShip(shipData) {
     removeChildren(main)
    let shipDiv = document.createElement('div')
+   
    let shipImg = document.createElement('img')
+   shipImg.setAttribute('class', 'ship-img')
    let shipName = document.createElement('h2')
    shipName.textContent = shipData.name
    
    shipDiv.setAttribute('class', "ship-con")
    let charNum = getLastNumber(shipData.url)
    shipImg.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`
-  
+ //  const shipI = document.querySelector('.ship-img')
+   shipImg.addEventListener('error', () => {
+    console.log('not aval')
+       shipImg.hidden = true
+      dia.classList.toggle("is-active")
+   })
   // shipImg.addEventListener('error', shipImg.hidden = true)
    main.appendChild(shipDiv)
    shipDiv.appendChild(shipImg)
@@ -70,11 +82,16 @@ function populateShipVe(veData) {
    let veImg = document.createElement('img')
    let veName = document.createElement('h2')
    veName.textContent = veData.name
-   
+   veImg.setAttribute('class', 've-img')
    veDiv.setAttribute('class', "ship-con")
    let charNum = getLastNumber(veData.url)
    veImg.src = `https://starwars-visualguide.com/assets/img/vehicles/${charNum}.jpg`
-  
+ //  const veI = document.querySelector('.ve-img')
+   veImg.addEventListener('error', () => {
+    console.log('not aval')
+       veImg.hidden = true
+      dia.classList.toggle("is-active")
+   })
   // shipImg.addEventListener('error', shipImg.hidden = true)
    main.appendChild(veDiv)
    veDiv.appendChild(veImg)
